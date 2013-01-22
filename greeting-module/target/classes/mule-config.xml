@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:spring="http://www.springframework.org/schema/beans"
+      xmlns:greeting="http://www.mulesoft.org/schema/mule/greeting"
+      xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+        http://www.mulesoft.org/schema/mule/greeting http://www.mulesoft.org/schema/mule/greeting/1.0-SNAPSHOT/mule-greeting.xsd">
+
+    <greeting:config myProperty="Some string"/>
+
+    <flow name="testHelloFlow">
+        <greeting:hello content="#[message.payload]"/>
+    </flow>
+
+    <flow name="testGoodbyeFlow">
+        <greeting:goodbye content="#[message.payload]"/>
+    </flow>
+    
+        <flow name="testGoAwayFlow">
+        <greeting:go-away content="#[message.payload]"/>
+    </flow>
+</mule>

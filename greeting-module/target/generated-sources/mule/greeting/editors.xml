@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" prefix="greeting" url="http://www.mulesoft.org/schema/mule/greeting">
+  <global-cloud-connector extends="http://www.mulesoft.org/schema/mule/greeting/abstractGreetingConnectorGeneric" abstract="true" image="" localId="parentConfig" icon="" description="" caption="Greeting"></global-cloud-connector>
+  <global-cloud-connector extends="http://www.mulesoft.org/schema/mule/greeting/parentConfig" abstract="false" image="icons/large/greeting-connector-48x32.png" localId="config" icon="icons/small/greeting-connector-24x16.png" description="Global Greeting configuration information." caption="Greeting">
+    <attribute-category description="Greeting configuration properties." caption="General">
+      <group caption="Generic" id="greetingGenericProperties">
+        <name required="true" description="Give a name to this configuration so it can be later referenced by config-ref." caption="Name" name="name"></name>
+      </group>
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Configurable." caption="My Property" name="myProperty"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector abstract="true" image="icons/large/greeting-connector-48x32.png" localId="abstractGreetingConnectorGeneric" icon="icons/small/greeting-connector-24x16.png" description="Interact with Greeting." caption="Abstractgreetingconnectorgeneric">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="abstractGreetingConnectorGeneric">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/greeting/config" required="true" description="Specify which configuration to use for this invocation." caption="Config Reference" name="config-ref"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector extends="http://www.mulesoft.org/schema/mule/greeting/abstractGreetingConnectorGeneric" image="icons/large/greeting-connector-48x32.png" localId="greeting-connector" icon="icons/small/greeting-connector-24x16.png" description="Generic module." caption="Greeting" aliasId="org.mule.tooling.ui.modules.core.pattern.greeting">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="greetingConnectorGeneric">
+        <modeSwitch description="Operation." caption="Operation" name="Greeting operations to execute">
+          <mode modeLabel="Go away" modeId="http://www.mulesoft.org/schema/mule/greeting/go-away"></mode>
+          <mode modeLabel="Goodbye" modeId="http://www.mulesoft.org/schema/mule/greeting/goodbye"></mode>
+          <mode modeLabel="Hello" modeId="http://www.mulesoft.org/schema/mule/greeting/hello"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/greeting/abstractGreetingConnectorGeneric" abstract="true" image="icons/large/greeting-connector-48x32.png" localId="go-away" icon="icons/small/greeting-connector-24x16.png" caption="Go Away">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Content to be processed." caption="Content" name="content"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/greeting/abstractGreetingConnectorGeneric" abstract="true" image="icons/large/greeting-connector-48x32.png" localId="goodbye" icon="icons/small/greeting-connector-24x16.png" caption="Goodbye">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Content to be processed." caption="Content" name="content"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" extends="http://www.mulesoft.org/schema/mule/greeting/abstractGreetingConnectorGeneric" abstract="true" image="icons/large/greeting-connector-48x32.png" localId="hello" icon="icons/small/greeting-connector-24x16.png" caption="Hello">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="Content to be processed." caption="Content" name="content"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>

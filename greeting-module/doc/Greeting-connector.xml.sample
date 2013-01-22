@@ -1,0 +1,11 @@
+<!-- BEGIN_INCLUDE(greeting:hello) -->
+    <greeting:hello content="#[map-payload:content]" />
+<!-- END_INCLUDE(greeting:hello) -->
+
+<!-- BEGIN_INCLUDE(greeting:goodbye) -->
+    <greeting:goodbye content="#[map-payload:content]" />
+<!-- END_INCLUDE(greeting:goodbye) -->
+
+<!-- BEGIN_INCLUDE(greeting:go-away) -->
+    <greeting:go-away content="#[map-payload:content]" />
+<!-- END_INCLUDE(greeting:go-away) -->
